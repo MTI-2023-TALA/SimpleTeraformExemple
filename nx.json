@@ -5,21 +5,17 @@
     "default": {
       "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "lint",
-          "test",
-          "e2e"
-        ],
+        "cacheableOperations": ["build", "lint", "test", "e2e"],
         "accessToken": "MzJlMWM0MzItYzhjYy00OTI3LWJkNTUtYTMyMGNlYTJiYjRmfHJlYWQtd3JpdGU="
       }
     }
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ]
+      "dependsOn": ["^build"]
     }
+  },
+  "implicitDependencies": {
+    "go.mod": "*"
   }
 }
