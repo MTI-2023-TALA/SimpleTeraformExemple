@@ -1,12 +1,13 @@
 package main
 
-import "fmt"
-
-func Hello(name string) string {
-	result := "Hello " + name
-	return result
-}
+import "github.com/gofiber/fiber/v2"
 
 func main() {
-	fmt.Println(Hello("api"))
+	app := fiber.New()
+
+	app.Get("/", func(c *fiber.Ctx) error {
+		return c.SendString("Hello, World!")
+	})
+
+	app.Listen(":3000")
 }
