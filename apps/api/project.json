@@ -11,6 +11,13 @@
         "main": "apps/api/main.go"
       }
     },
+    "buimd-migration": {
+      "executor": "@nx-go/nx-go:build",
+      "options": {
+        "outputPath": "dist/apps/api-migrate",
+        "main": "apps/api/migrate/migrate.go"
+      }
+    },
     "serve": {
       "executor": "@nx-go/nx-go:serve",
       "options": {
