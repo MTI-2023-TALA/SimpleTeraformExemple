@@ -1,6 +1,7 @@
 package main
 
 import (
+	"os"
 	"simple-teraform-exemple/apps/api/controller"
 	"simple-teraform-exemple/apps/api/initializers"
 
@@ -25,5 +26,9 @@ func main() {
 	app.Get("/todo/:id", controller.GetOneTodo)
 	app.Delete("/todo/:id", controller.DeleteTodo)
 
-	app.Listen(":3000")
+	port := os.Getenv("PORT")
+	if (len(port) == 0) {
+		port = ":3000"
+	}
+	app.Listen(port)
 }
