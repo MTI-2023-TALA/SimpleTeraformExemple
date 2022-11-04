@@ -11,11 +11,18 @@
         "main": "apps/api/main.go"
       }
     },
-    "buimd-migration": {
+    "build-migration": {
       "executor": "@nx-go/nx-go:build",
       "options": {
         "outputPath": "dist/apps/api-migrate",
         "main": "apps/api/migrate/migrate.go"
+      }
+    },
+    "build-lambda": {
+      "executor": "@nx-go/nx-go:build",
+      "options": {
+        "outputPath": "dist/apps/api-lambda",
+        "main": "apps/api/lambda-adapter/main.go"
       }
     },
     "serve": {
