@@ -10,6 +10,7 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	fiberadapter "github.com/awslabs/aws-lambda-go-api-proxy/fiber"
 	"github.com/gofiber/fiber/v2"
+	"github.com/gofiber/fiber/v2/middleware/cors"
 )
 
 var fiberLambda *fiberadapter.FiberLambda
@@ -21,6 +22,11 @@ func init() {
 
 	var app *fiber.App
 	app = fiber.New()
+
+	app.Use(cors.New(cors.Config{
+    AllowOrigins: "*",
+    AllowHeaders:  "Origin, Content-Type, Accept",
+	}))
 
 	app.Post("/todo", controller.CreateTodo)
 	app.Put("/todo/:id", controller.UpdateTodo)
